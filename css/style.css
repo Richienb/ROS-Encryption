@@ -1,0 +1,26 @@
+html > body {
+  background: #5c6bc0;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
+}
+
+body {
+  min-height: 100vh;
+  position: relative;
+  margin: 0;
+}
+
+.center {
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.demo-card-square > .mdl-card__title {
+  background: #3f51b5;
+}
+
+.mdl-card__title-text {
+  color: #ffffff;
+}
