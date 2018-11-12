@@ -2,89 +2,181 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta charset="UTF-8">
     <title>ROS Encryption</title>
-    <meta name="description" content="ROS Encryption is a website featuring Material Design and is used to encrypt text.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="This is a tool to easily calculate your spelling age using the score of an E Asttle spelling test. This is also an experiment for the new Material Design for the Web design library.">
 
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Material+Icons|Roboto:300,400,500,700'>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.indigo-red.min.css'>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel='stylesheet' href='https://unpkg.com/material-components-web@0.41.0/dist/material-components-web.min.css'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css'>
+
+    <style>
+        :root {
+            --mdc-theme-primary: #3f51b5;
+            --mdc-theme-secondary: #f44336;
+            --mdc-theme-on-primary: #ffffff;
+            --mdc-theme-on-secondary: #ffffff;
+        }
+        
+        :root body {
+            background-color: #3f51b5;
+        }
+        
+        :root body main {
+            background-color: #ffffff;
+            border-radius: 4px;
+            position: absolute;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+            min-width: calc(100vw - 80px);
+            min-height: calc(100vh - 80px);
+            padding: 20px;
+        }
+        
+        :root body main .mdc-tab-bar {
+            padding-bottom: 20px;
+        }
+        
+        :root body main div.mdc-text-field.mdc-text-field--outlined {
+            width: 100%;
+        }
+    </style>
 
 </head>
 
 <body>
-    <div class="demo-card-square mdl-card mdl-shadow--2dp center">
-        <header class="mdl-card__title">
-            <h2 class="mdl-card__title-text">ROS Encryption</h2>
-        </header>
-        <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-            <nav class="mdl-tabs__tab-bar">
-                <a href="#encrypt-panel" class="mdl-tabs__tab is-active">Encrypt</a>
-                <a href="#decrypt-panel" class="mdl-tabs__tab">Decrypt</a>
-            </nav>
 
-            <main>
-                <section class="mdl-tabs__panel is-active" id="encrypt-panel">
-                    <div class="mdl-card__supporting-text">
-                        <!-- Textfield with Floating Label -->
-
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="encrypt_cipher_div">
-                            <textarea class="mdl-textfield__input" type="text" rows="2" id="encrypt_text" onpaste="update_encrypt()" onkeyup="update_encrypt()" onchange="update_encrypt()"></textarea>
-                            <label class="mdl-textfield__label" for="encrypt_text" id="encrypt_text_hint">Text</label>
-                        </div>
-
-                        <!-- Textfield with Floating Label -->
-
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="password" id="encrypt_password" onkeyup="update_encrypt()" onpaste="update_encrypt()" onchange="update_encrypt()">
-                            <label class="mdl-textfield__label" for="encrypt_password" id="encrypt_password_hint">Password</label>
-                        </div>
-
-                        <!-- Multiline Textfield with Floating Label -->
-
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="encrypt_cipher_div">
-                            <textarea class="mdl-textfield__input" type="text" rows="5" id="encrypt_cipher" readonly></textarea>
-                            <label class="mdl-textfield__label" for="encrypt_cipher" id="encrypt_cipher_hint">Cipher</label>
-                        </div>
+    <main class="mdc-typography">
+        <h1 class="mdc-typography--headline1">ROS Encryption</h1>
+        <p class="mdc-typography--body1">This is a Material Design text encryption tool.</p>
+        <nav class="mdc-tab-bar" role="tablist" data-mdc-auto-init="MDCTabBar">
+            <div class="mdc-tab-scroller">
+                <div class="mdc-tab-scroller__scroll-area">
+                    <div class="mdc-tab-scroller__scroll-content">
+                        <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true">
+                            <span class="mdc-tab__content">
+    					          <span class="mdc-tab__icon" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none"><path d="M0 0h24v24H0V0z"/><path opacity=".87" d="M0 0h24v24H0V0z"/></g><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg></span>
+                            <span class="mdc-tab__text-label">Encrypt</span>
+                            </span>
+                            <span class="mdc-tab-indicator mdc-tab-indicator--active">
+    					          <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                            </span>
+                            <span class="mdc-tab__ripple"></span>
+                        </button>
+                        <button class="mdc-tab" role="tab" aria-selected="false" tabindex="-1">
+                            <span class="mdc-tab__content">
+    					          <span class="mdc-tab__icon" aria-hidden="true">
+<svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6h2c0-1.66 1.34-3 3-3s3 1.34 3 3v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm0 12H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg></span>
+                            <span class="mdc-tab__text-label">Decrypt</span>
+                            </span>
+                            <span class="mdc-tab-indicator">
+    					          <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                            </span>
+                            <span class="mdc-tab__ripple"></span>
+                        </button>
                     </div>
-                </section>
-                <section class="mdl-tabs__panel" id="decrypt-panel">
-                    <div class="mdl-card__supporting-text">
-                        <!-- Textfield with Floating Label -->
+                </div>
+            </div>
+        </nav>
+        <div id="encrypt-div">
 
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="decrypt_cipher_div">
-                            <textarea class="mdl-textfield__input" type="text" rows="5" id="decrypt_cipher" onpaste="update_decrypt()" onkeyup="update_decrypt()" onchange="update_decrypt()"></textarea>
-                            <label class="mdl-textfield__label" for="decrypt_cipher" id="decrypt_cipher_hint">Cipher</label>
-                        </div>
-
-                        <!-- Textfield with Floating Label -->
-
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="password" id="decrypt_password" onkeyup="update_decrypt()" onpaste="update_decrypt()" onchange="update_decrypt()">
-                            <label class="mdl-textfield__label" for="decrypt_password_two" id="decrypt_password_hint">Password</label>
-                        </div>
-
-                        <!-- Multiline Textfield with Floating Label -->
-
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="decrypt_text_div">
-                            <textarea class="mdl-textfield__input" type="text" rows="2" id="decrypt_text" readonly></textarea>
-                            <label class="mdl-textfield__label" for="decrypt_text" id="decrypt_text_hint">Text</label>
-                        </div>
-                    </div>
-                </section>
-            </main>
+            <div class="mdc-text-field mdc-text-field--textarea" data-mdc-auto-init="MDCTextField">
+                <textarea id="textarea-one" class="mdc-text-field__input" rows="3" cols="10"></textarea>
+                <label for="textarea-one" class="mdc-floating-label">Text to encrypt</label>
+            </div>
+            <br>
+            <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+                <input type="text" id="tf-outlined-one" class="mdc-text-field__input">
+                <label for="tf-outlined-one" class="mdc-floating-label">Password</label>
+                <div class="mdc-notched-outline">
+                    <svg>
+                        <path class="mdc-notched-outline__path" />
+                    </svg>
+                </div>
+                <div class="mdc-notched-outline__idle"></div>
+            </div>
+            <br>
+            <br>
+            <div class="mdc-text-field mdc-text-field--textarea" data-mdc-auto-init="MDCTextField">
+                <textarea id="textarea-two" class="mdc-text-field__input" rows="3" cols="10"></textarea>
+                <label for="textarea-two" class="mdc-floating-label">Encrypted text</label>
+            </div>
         </div>
+        <div id="decrypt-div" style="display: none">
+            <div class="mdc-text-field mdc-text-field--textarea" data-mdc-auto-init="MDCTextField">
+                <textarea id="textarea-three" class="mdc-text-field__input" rows="3" cols="10"></textarea>
+                <label for="textarea-three" class="mdc-floating-label">Text to decrypt</label>
+            </div>
+            <br>
+            <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+                <input type="text" id="tf-outlined-two" class="mdc-text-field__input">
+                <label for="tf-outlined-two" class="mdc-floating-label">Password</label>
+                <div class="mdc-notched-outline">
+                    <svg>
+                        <path class="mdc-notched-outline__path" />
+                    </svg>
+                </div>
+                <div class="mdc-notched-outline__idle"></div>
+            </div>
+            <br>
+            <br>
+            <div class="mdc-text-field mdc-text-field--textarea" data-mdc-auto-init="MDCTextField">
+                <textarea id="textarea-four" class="mdc-text-field__input" rows="3" cols="10"></textarea>
+                <label for="textarea-four" class="mdc-floating-label">Decrypted text</label>
+            </div>
+        </div>
+    </main>
+    <script async src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js'></script>
+    <script src='https://unpkg.com/material-components-web@0.41.0/dist/material-components-web.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js'></script>
 
-    </div>
-    <script async defer src='https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.js'></script>
-    <script async defer src='https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js'></script>
-    <script async defer src="js/index.js"></script>
+    <script>
+        window.mdc.autoInit();
 
-    <script async defer src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        document.
+        querySelector(
+            "body > main > nav > div > div > div > button.mdc-tab.mdc-tab--active").
+
+        addEventListener("click", function() {
+            document.getElementById("decrypt-div").style.display = "none";
+            document.getElementById("encrypt-div").style.display = "block";
+        });
+
+        document.
+        querySelector("body > main > nav > div > div > div > button:nth-child(2)").
+        addEventListener("click", function() {
+            document.getElementById("encrypt-div").style.display = "none";
+            document.getElementById("decrypt-div").style.display = "block";
+        });
+
+        document.
+        querySelectorAll("#textarea-one, #tf-outlined-one").
+        forEach(function(elem) {
+            elem.addEventListener("input", function() {
+                document.querySelector("#textarea-two").value = CryptoJS.AES.encrypt(
+                    document.querySelector("#textarea-one").value,
+                    document.querySelector("#tf-outlined-one").value);
+
+            });
+        });
+
+        document.
+        querySelectorAll("#textarea-three, #tf-outlined-two").
+        forEach(function(elem) {
+            elem.addEventListener("input", function() {
+                document.querySelector("#textarea-four").value = CryptoJS.AES.decrypt(
+                    document.querySelector("#textarea-three").value,
+                    document.querySelector("#tf-outlined-two").value).
+                toString(CryptoJS.enc.Utf8);
+            });
+        });
+    </script>
+
 </body>
 
 </html>
